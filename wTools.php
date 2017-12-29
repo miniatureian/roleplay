@@ -1,5 +1,5 @@
 <?php
-require_once("mysqlconn.php");
+require_once("query.php");
 
 //$query = $_GET["query"];
 
