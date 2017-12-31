@@ -1,65 +1,34 @@
-<?php
-require_once("mysqlconn.php");
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+table = "";
+query = "";
 
-$table = $_GET["table"];
-$query = $_GET["query"];
-
-function buildNameList($sql){
-	$sql->execute();
-	$result=$sql->get_result();
-
-	echo "<form><table name=\"nameList\">";
-	while($row = $result->fetch_assoc()){
-		echo "<tr><th><span id=\"$row[ID]\" onclick=\"fillValues(this.id)\">$row[Name]</span></tr>";
-	}
-	echo "</table></form>";
-
-	$result->close();
-	$sql->close();
+function fillNameList(t){
+	table = t;
+	$("#nameTable").load("/api/rTools.php?table="+table+"&query=TODO");
+	$("#info").html("Select item");
 }
-
-function buildItem($sql){
-	$sql->execute();
-	$result=$sql->get_result();
-	while($row=$result->fetch_assoc()){
-		foreach($row as $key=>$value){
-			echo "$key - $value<br>";
-		}
-	}
+function fillValues(q){
+	query = q;
+	$("#info").load("/api/rTools.php?table="+table+"&query="+query);
 }
+</script>
+</head>
+<body>
 
-//echo "finished initializing functions<br>";
+<p><b>Select a table</b></p>
+<form>
+	<input type="radio" name="tableList" value="rPersonName" onclick="fillNameList(this.value)">Random name<br>
+	<input type="radio" name="tableList" value="Faction" onclick="fillNameList(this.value)">Faction<br>
+	<input type="radio" name="tableList" value="Location" onclick="fillNameList(this.value)">Location<br>
+</form>
 
-if($query == "TODO"){
-	//echo "starting switch1 case<br>";
-	switch($table){
-	case "rPersonName":
-		buildNameList($search_rPersonName_Table);
-		break;
-	case "Faction":
-		buildNameList($search_Faction_Table);
-		break;
-	case "Location":
-		buildNameList($search_Location_Table);
-		break;
-	default:
-		break;
-	}
-}else{
-	//echo "switch case2 t:$table q:$query<br>";
-	switch($table){
-	case "rPersonName":
-		buildItem($search_rPersonName_byID);
-		break;
-	case "Faction":
-		buildItem($search_Faction_byID);
-		break;
-	case "Location":
-		buildItem($search_Location_byID);
-		break;
-	default:
-		break;
-	}
-}
-?>
+<p><span id="nameTable">Select table</span></p>
+
+<p><span id="info"></span></p>
+</body>
+</html>
 
