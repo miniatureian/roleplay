@@ -36,18 +36,10 @@ if(isset($_POST["table"])){
 	$table = $_POST["table"];
 	switch($table)
 	{
-	case "Person":
-		//$insert_Person->bind_params("ssssssssssss",p("Name"),\
-		//p("ShortName"),p("Title"),p("Gender"),p("Description"),\
-		//p("MetaDescription"),p("Faction"),p("SecretFaction"),\
-		//p("HomeLocation"),p("WorkLocation"),p("HobbyLocation"),\
-		//p("Motivation"));
-		//buildInsert($insert_Person,$table)
-		break;
 	case "Faction":
-		//$insert_Faction->bind_params("sssssss",p("Name"),\
-		//p("Leader"),p("Location"),p("IsSubFaction"),\
-		//p("SubFactionOf"),p("Description"),p("Motivation"));
+		//$insert_Faction->bind_params("ssssss",p("Name"),\
+		//p("Leader"),p("Location"),p("SubFactionOf"),\
+		//p("Description"),p("Motivation"));
 		//buildInsert($insert_Faction, $table);
 		break;
 	case "Location":
@@ -55,6 +47,15 @@ if(isset($_POST["table"])){
 		//p("Description"),p("LocationLevel"),p("IsInLocation")\
 		//p("MetaDescription"));
 		//buildInsert($insert_Location, $table);
+		break;
+	case "Person": 
+	//Title, Name, Gender, Faction, SecretFaction, HomeLocation, 
+	//WorkLocation, HobbyLocation, Description, MetaDescription, Motivation
+		//$insert_Person->bind_params("sssssssssss",p("Title"),\
+		//p("Name"),p("Gender"),p("Faction"),p("SecretFaction"),\
+		//p("HomeLocation"),p("WorkLocation"),p("HobbyLocation"),\
+		//p("Description"),p("MetaDescription"),p("Motivation"));
+		//buildInsert($insert_Person,$table)
 		break;
 	default:
 		break;
