@@ -4,37 +4,41 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/api/bootstrap.bundle.min.js"></script>
 <link href="/api/bootstrap.min.css" rel="stylesheet">
+<style>
+.active, .btn:hover {
+	background-color:#111;
+	color:white;
+}
+</style>
 <script>
 table = "";
 
-function fillNameList(divVar){
+function tableBtn1(){
 	table = divVar.id;
-	divVar.style.backgroundColor = 'LightSteelBlue';
-	$("#divVar").
+	divVar.style.background-color = 'LightSteelBlue';
 	$("#columnInputs").load("/api/wTools.php?table="+table);
 }
 function fillValues(q){
 	$("#info").load("/api/wTools.php?table="+table);
 }
 </script>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div class="container-fluid">
-	<div class="row justify-content-center">
-		<div id="personDiv"  class="col-sm-4">Person Name
-		</div>
-		<div id="factionDiv" class="col-sm-4" >Faction
-		</div>
-		<div id="locationDiv" class="col-sm-4" >Location
-		</div>
+	<div class="row justify-content-center btn-group btn-group-toggle" data-toggle="buttons">
+		<label class="col-sm-3 btn btn-secondary">
+		<input value="Person" type="radio" name="tableList" class="btn btn-outline-secondary" onclick="fillNameList(this)">
+		Person Name</input></label>
+		<label class="col-sm-3 btn btn-secondary" >
+		<input id="Faction" type="radio" name="tableList" class="btn btn-outline-secondary" onclick="fillNameList(this)">
+		Faction</input></label>
+		<label class="col-sm-3 btn btn-secondary" >
+		<input id="Location" type="radio" name="tableList" class="btn btn-outline-secondary" onclick="fillNameList(this)">
+		Location</input></label>
 	</div>
-	<form id="tableSelect">
-		<input type="radio" name="tableList" value="Person"><br>
-		<input type="radio" name="tableList" value="Faction"><br>
-		<input type="radio" name="tableList" value="Location"><br>
-	</form>
-	<p><b>Select a table</b></p>
-
 
 	<p><span id="columnInputs">Select table</span></p>
 
@@ -42,9 +46,6 @@ function fillValues(q){
 </div>
 </body>
 <script>
-personDiv.click(fillNameList(this));
-factionDiv.click(fillNameList(this));
-locationDiv.click(fillNameList(this));
 </script>
 </html>
 
