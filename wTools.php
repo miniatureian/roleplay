@@ -4,27 +4,27 @@ require_once("query.php");
 //$query = $_GET["query"];
 
 function buildNameList($sql, $t){
+	$tHeader = "";
+	$tRow = "";
 	$sql->execute();
 	$result=$sql->get_result();
-	var tHeader = "";
-	var tRow = "";
 	
 	echo "<form method=\"post\" action=\"/api/roleplay/wTools.php?table=\"$t>";
-	tHeader = "<table class=\"table table-sm table-striped\"><thead><tr><th scope=\"col\">#</th>";
-	rRow = "<tbody><tr><th scope=\"row\">";
+	$tHeader = "<table class=\"table table-sm table-striped\"><thead><tr><th scope=\"col\">#</th>";
+	$rRow = "<tbody><tr><th scope=\"row\">";
 	while($row = $result->fetch_assoc()){
 		
 		//if(array_search("ID",$row)){}else
-		tHeader .= "<th scope=\"col\">$row[Field]</th>";
-		tRow .= "<td><input type=\"text\" id=\"$row[Field]\" ";
+		$tHeader .= "<th scope=\"col\">$row[Field]</th>";
+		$tRow .= "<td><input type=\"text\" id=\"$row[Field]\" ";
 		if(array_search("LeaderName",$row)){
 			//dynamic search function
 			//tRow .= "onkeyup=\"showHint(this)\"";
 		}
-		tRow .= "></input></td>";
+		$tRow .= "></input></td>";
 	}
-	tHeader .= "<th>Submit</th></tr></thead>";
-	tRow .= "<tr><button type=\"submit\">Submit</button>";
+	$tHeader .= "<th>Submit</th></tr></thead>";
+	$tRow .= "<tr><button type=\"submit\">Submit</button>";
 	echo tHeader.tRow."</tr></tbody></table></form>";
 	$result->close();
 	$sql->close();
