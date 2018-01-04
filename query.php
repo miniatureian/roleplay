@@ -1,6 +1,6 @@
 <?php
 
-require_once("/api/mysqlconn.php");
+require_once("mysqlconn.php");
 
 //Faction table columns: ID Name Leader Location IsSubFaction SubFactionOf Description Motivation
 //Location table columns: ID Name Description LocationLevel IsInLocation MetaDescription
@@ -8,28 +8,28 @@ require_once("/api/mysqlconn.php");
 //Person table columns: ID Name ShortName Title Gender Description MetaDescription \
 // Faction SecretFaction HomeLocation WorkLocation HobbyLocation Motivation
 
-$search_Faction_byID = $conn->prepare("SELECT \
-	`f`.`Name` AS FactionName, `p`.`Leader` AS LeaderName, `l`.`Name` AS LocationName, \
-	`f2`.`Name` AS SubFaction, `f`.`Description`, `f`.`Motivation` \
-	FROM `Faction` AS `f` \
-	LEFT JOIN `rPersonName` AS `p` ON `f`.`Leader`=`p`.`ID` \
-	LEFT JOIN `Location` AS `l` ON `f`.`Location`=`l`.`ID` \
-	LEFT JOIN `Faction` AS `f2` ON `f`.`SubFactionOf`=`f2`.`ID`\
+$search_Faction_byID = $conn->prepare("SELECT 
+	`f`.`Name` AS FactionName, `p`.`Name` AS LeaderName, `l`.`Name` AS LocationName, 
+	`f2`.`Name` AS SubFaction, `f`.`Description`, `f`.`Motivation` 
+	FROM `Faction` AS `f` 
+	LEFT JOIN `rPersonName` AS `p` ON `f`.`Leader`=`p`.`ID` 
+	LEFT JOIN `Location` AS `l` ON `f`.`Location`=`l`.`ID` 
+	LEFT JOIN `Faction` AS `f2` ON `f`.`SubFactionOf`=`f2`.`ID`
 	WHERE `f`.`ID`=?");
-$search_Location_byID = $conn->prepare("SELECT \
-	l.Name AS LocationName, l.LocationLevel, l2.Name AS InLocation, l.Description, l.MetaDescription \
-	FROM `Location` AS l \
-	LEFT JOIN `Location` AS `l2` ON `l`.`IsInLocation`=`l2`.`ID` \
+$search_Location_byID = $conn->prepare("SELECT 
+	l.Name AS LocationName, l.LocationLevel, l2.Name AS InLocation, l.Description, l.MetaDescription 
+	FROM `Location` AS l 
+	LEFT JOIN `Location` AS `l2` ON `l`.`IsInLocation`=`l2`.`ID` 
 	WHERE `ID`=?");
-$search_Person_byID = $conn->prepare("SELECT \
-	p.Title, p.Name AS PersonName, p.Gender, f.Name AS Faction, f2.Name AS SecretFaction, \
-	home.Name AS Home, work.Name AS Work, hobby.Name AS Hobby, p.Description, p.MetaDescription, p.Motivation \
-	FROM Person AS p \
-	LEFT JOIN `Faction` AS f ON p.Faction = f.ID \
-	LEFT JOIN `Faction` AS f2 ON p.SecretFaction = f.ID \
-	LEFT JOIN `Location` AS home ON p.HomeLocation = home.ID \
-	LEFT JOIN `Location` AS work ON p.WorkLocation = home.ID \
-	LEFT JOIN `Location` AS hobby ON p.HobbyLocation = home.ID \
+$search_Person_byID = $conn->prepare("SELECT 
+	p.Title, p.Name AS PersonName, p.Gender, f.Name AS Faction, f2.Name AS SecretFaction, 
+	home.Name AS Home, work.Name AS Work, hobby.Name AS Hobby, p.Description, p.MetaDescription, p.Motivation 
+	FROM Person AS p 
+	LEFT JOIN `Faction` AS f ON p.Faction = f.ID 
+	LEFT JOIN `Faction` AS f2 ON p.SecretFaction = f.ID 
+	LEFT JOIN `Location` AS home ON p.HomeLocation = home.ID 
+	LEFT JOIN `Location` AS work ON p.WorkLocation = home.ID 
+	LEFT JOIN `Location` AS hobby ON p.HobbyLocation = home.ID 
 	WHERE p.`ID`=?");
 $search_rPersonName_byID = $conn->prepare("SELECT * FROM `rPersonName` WHERE `ID`=?");
 
