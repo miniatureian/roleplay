@@ -20,7 +20,7 @@ $search_Location_byID = $conn->prepare("SELECT
 	l.Name AS LocationName, l.LocationLevel, l2.Name AS InLocation, l.Description, l.MetaDescription 
 	FROM `Location` AS l 
 	LEFT JOIN `Location` AS `l2` ON `l`.`IsInLocation`=`l2`.`ID` 
-	WHERE `ID`=?");
+	WHERE l.`ID`=?");
 $search_Person_byID = $conn->prepare("SELECT 
 	p.Title, p.Name AS PersonName, p.Gender, f.Name AS Faction, f2.Name AS SecretFaction, 
 	home.Name AS Home, work.Name AS Work, hobby.Name AS Hobby, p.Description, p.MetaDescription, p.Motivation 
