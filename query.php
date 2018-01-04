@@ -17,13 +17,13 @@ $search_Faction_byID = $conn->prepare("SELECT
 	LEFT JOIN `Faction` AS `f2` ON `f`.`SubFactionOf`=`f2`.`ID`
 	WHERE `f`.`ID`=?");
 $search_Location_byID = $conn->prepare("SELECT 
-	l.Name AS LocationName, l.LocationLevel, l2.Name AS InLocation, l.Description, l.MetaDescription 
+	l.Name AS LocationName, l.LocationLevel, l2.Name AS InLocation, l.Description
 	FROM `Location` AS l 
 	LEFT JOIN `Location` AS `l2` ON `l`.`IsInLocation`=`l2`.`ID` 
 	WHERE l.`ID`=?");
 $search_Person_byID = $conn->prepare("SELECT 
 	p.Title, p.Name AS PersonName, p.Gender, f.Name AS Faction, f2.Name AS SecretFaction, 
-	home.Name AS Home, work.Name AS Work, hobby.Name AS Hobby, p.Description, p.MetaDescription, p.Motivation 
+	home.Name AS Home, work.Name AS Work, hobby.Name AS Hobby, p.Description, p.Motivation 
 	FROM Person AS p 
 	LEFT JOIN `Faction` AS f ON p.Faction = f.ID 
 	LEFT JOIN `Faction` AS f2 ON p.SecretFaction = f.ID 
@@ -40,10 +40,10 @@ $search_rPersonName_Table = $conn->prepare("SELECT ID,Name FROM `rPersonName`");
 $insert_Faction = $conn->prepare("INSERT INTO `Faction` (Name, Leader, Location, SubFactionOf,\
 	Description, Motivation) VALUES (?, ?, ?, ?, ?, ?)");
 $insert_Location = $conn->prepare("INSERT INTO `Location` (Name, Description, LocationLevel, \
-	IsInLocation, MetaDescription) VALUES (?, ?, ?, ?, ?)");
+	IsInLocation) VALUES (?, ?, ?, ?)");
 $insert_Person = $conn->prepare("INSERT INTO `Person` (Title, Name, Gender, Faction, SecretFaction, \
-	HomeLocation, WorkLocation, HobbyLocation, Description, MetaDescription, Motivation) \
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	HomeLocation, WorkLocation, HobbyLocation, Description, Motivation) \
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 $showcolumn_Faction = $conn->prepare("SHOW COLUMNS FROM Faction");
 $showcolumn_Location = $conn->prepare("SHOW COLUMNS FROM Location");

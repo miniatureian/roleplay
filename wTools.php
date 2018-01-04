@@ -56,18 +56,17 @@ if(isset($_POST["table"])){
 		//buildInsert($insert_Faction, $table);
 		break;
 	case "Location":
-		//$insert_Location->bind_params("sssss",p("Name"),\
-		//p("Description"),p("LocationLevel"),p("IsInLocation")\
-		//p("MetaDescription"));
+		//$insert_Location->bind_params("ssss",p("Name"),\
+		//p("Description"),p("LocationLevel"),p("IsInLocation"));
 		//buildInsert($insert_Location, $table);
 		break;
 	case "Person": 
 	//Title, Name, Gender, Faction, SecretFaction, HomeLocation, 
-	//WorkLocation, HobbyLocation, Description, MetaDescription, Motivation
-		//$insert_Person->bind_params("sssssssssss",p("Title"),\
+	//WorkLocation, HobbyLocation, Description, Motivation
+		//$insert_Person->bind_params("ssssssssss",p("Title"),\
 		//p("Name"),p("Gender"),p("Faction"),p("SecretFaction"),\
 		//p("HomeLocation"),p("WorkLocation"),p("HobbyLocation"),\
-		//p("Description"),p("MetaDescription"),p("Motivation"));
+		//p("Description"),p("Motivation"));
 		//buildInsert($insert_Person,$table)
 		break;
 	default:
