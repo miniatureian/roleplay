@@ -3,30 +3,47 @@ require_once("query.php");
 
 //$query = $_GET["query"];
 
+//some precalculated strings
+function gender(){
+	return "<div class=\"dropdown\"><button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\" data-toggle=\"dropdown\" value\"M\">M</button><div class=\"dropdown-menu\" aria-labelledby=\"Gender\"><button class=\"dropdown-item\ active" value\"M\">M</button><button class=\"dropdown-item\" value\"F\">F</button></div></div>";
+}
+function locationlevel(){
+	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
+	return "<div class=\"dropdown\">
+		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot</button>
+		  <div class=\"dropdown-menu\" aria-labelledby=\"LocationLevel\">
+			<button class=\"dropdown-item\" value=\"Universe\">Universe</button>
+			<button class=\"dropdown-item\" value=\"Planet\">Planet</button>
+			<button class=\"dropdown-item\" value=\"Country\">Country</button>
+			<button class=\"dropdown-item\" value=\"City\">City</button>
+			<button class=\"dropdown-item\" value=\"Neighborhood\">Neighborhood</button>
+			<button class=\"dropdown-item active\" value=\"Lot\">Lot</button>
+		  </div>
+		</div>";
+}
+
 function buildNameList($sql, $t){
-	$tHeader = "";
-	$tRow = "";
 	$sql->execute();
 	$result=$sql->get_result();
-	
-	echo "<form method=\"post\" action=\"/api/roleplay/wTools.php?table=\"$t>";
-	$tHeader = "<table class=\"table table-sm table-striped\"><thead><tr>";
-	$rRow = "<tbody><tr><th scope=\"row\"></th>";
+	$payload = "<div class=\"row container-fluid\">
+		<form method=\"post\" action=\"/api/roleplay/wTools.php?table=\"$t>
+		<button type=\"submit\">Submit</button>";
+		
 	while($row = $result->fetch_assoc()){
 		
 		if(array_search("ID",$row)){}else
 		{
-			$tHeader .= "<th scope=\"col\">$row[Field]</th>";
-			$tRow .= "<td><input type=\"text\" id=\"$row[Field]\" ";
-			if(array_search("LeaderName",$row)){
-				//dynamic search function
-				//tRow .= "onkeyup=\"showHint(this)\"";
-			}
-			$tRow .= "></input></td>";
+			$payload .= "<div class=\"row col-sm-auto\">";
+			$payload .= "<label class=\"\">$row[Field]</label><br>";
+			
+			if(array_search("Gender",$row)) $payload .= gender();
+			else if (array_search("LocationLevel",$row)) payload .= locationlevel();
+			//else if (array_search("",$row))
+			//else if (array_search("",$row))
+			else $payload .= "<input type=\"text\" id=\"$row[Field]\"></input></div>";
 		}
 	}
-	$tHeader .= "</tr></thead>";
-	echo $tHeader.$tRow."</tr></tbody></table><button type=\"submit\">Submit</button></form>";
+	echo $payload."</form></div>";
 	$result->close();
 	$sql->close();
 }
