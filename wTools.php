@@ -5,7 +5,7 @@ require_once("query.php");
 
 //some precalculated strings
 function gender(){
-	return "<div class=\"dropdown\"><button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\" data-toggle=\"dropdown\" value\"M\">M</button><div class=\"dropdown-menu\" aria-labelledby=\"Gender\"><button class=\"dropdown-item\ active" value\"M\">M</button><button class=\"dropdown-item\" value\"F\">F</button></div></div>";
+	return "<div class=\"dropdown\"><button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\"  data-toggle=\"dropdown\" value\"M\">M</button><div class=\"dropdown-menu\" aria-labelledby=\"Gender\"><button  class=\"dropdown-item\ active\" value\"M\">M</button><button class=\"dropdown-item\" value\"F\">F</button></div></div>";
 }
 function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
@@ -37,7 +37,7 @@ function buildNameList($sql, $t){
 			$payload .= "<label class=\"\">$row[Field]</label><br>";
 			
 			if(array_search("Gender",$row)) $payload .= gender();
-			else if (array_search("LocationLevel",$row)) payload .= locationlevel();
+			else if (array_search("LocationLevel",$row)) $payload .= locationlevel();
 			//else if (array_search("",$row))
 			//else if (array_search("",$row))
 			else $payload .= "<input type=\"text\" id=\"$row[Field]\"></input></div>";
