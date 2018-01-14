@@ -8,8 +8,8 @@ function gender(){
 	return "<div class=\"dropdown\">
 				<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\"  data-toggle=\"dropdown\" value\"M\">M</button>
 				<div class=\"dropdown-menu\" aria-labelledby=\"Gender\">
-					<button type=\"button\"  class=\"dropdown-item\ active btn btn-secondary\" value\"M\" onclick=\"dropdownFill(\"Gender\",this)\">M</button>
-					<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value\"F\" onclick=\"dropdownFill(\"Gender\",this)\">F
+					<button type=\"button\"  class=\"dropdown-item\ active btn btn-secondary\" value\"M\" onclick=\"dropdownFill(\"#Gender\",this)\">M</button>
+					<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value\"F\" onclick=\"dropdownFill(\"#Gender\",this)\">F
 					</button>
 				</div>
 			</div></div>";
