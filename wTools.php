@@ -25,15 +25,16 @@ function locationlevel(){
 function buildNameList($sql, $t){
 	$sql->execute();
 	$result=$sql->get_result();
-	$payload = "<div class=\"row container-fluid\">
-		<form method=\"post\" action=\"/api/roleplay/wTools.php?table=\"$t>
-		<button type=\"submit\">Submit</button>";
+	$payload = "<form method=\"post\" action=\"/api/roleplay/wTools.php?table=\"$t>
+		<button type=\"submit\">Submit</button>
+		<div class=\"container-fluid\">
+		<div class=\"row\">";
 		
 	while($row = $result->fetch_assoc()){
 		
-		if(array_search("ID",$row)){}else
-		{
-			$payload .= "<div class=\"row col-sm-auto\">";
+		if(array_search("ID",$row)){}
+		else{
+			$payload .= "<div class=\"col-sm\">";
 			$payload .= "<label class=\"\">$row[Field]</label><br>";
 			
 			if(array_search("Gender",$row)) $payload .= gender();
@@ -43,7 +44,7 @@ function buildNameList($sql, $t){
 			else $payload .= "<input type=\"text\" id=\"$row[Field]\"></input></div>";
 		}
 	}
-	echo $payload."</form></div>";
+	echo $payload."</div></div></form>";
 	$result->close();
 	$sql->close();
 }
