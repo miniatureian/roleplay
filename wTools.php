@@ -8,8 +8,8 @@ function gender(){
 	return "<div class=\"dropdown\">
 				<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\"  data-toggle=\"dropdown\" value\"M\">M</button>
 				<div class=\"dropdown-menu\" aria-labelledby=\"Gender\">
-					<button  class=\"dropdown-item\ active btn btn-secondary\" value\"M\" onclick=\"dropdownFill(\"Gender\",this)\">M</button>
-					<button class=\"dropdown-item btn btn-secondary\" value\"F\" onclick=\"dropdownFill(\"Gender\",this)\">F
+					<button type=\"button\"  class=\"dropdown-item\ active btn btn-secondary\" value\"M\" onclick=\"dropdownFill(\"Gender\",this)\">M</button>
+					<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value\"F\" onclick=\"dropdownFill(\"Gender\",this)\">F
 					</button>
 				</div>
 			</div></div>";
@@ -19,12 +19,12 @@ function locationlevel(){
 	return "<div class=\"dropdown\">
 		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot</button>
 		  <div class=\"dropdown-menu btn btn-secondary\" aria-labelledby=\"LocationLevel\">
-			<button class=\"dropdown-item btn btn-secondary\" value=\"Universe\">Universe</button>
-			<button class=\"dropdown-item btn btn-secondary\" value=\"Planet\">Planet</button>
-			<button class=\"dropdown-item btn btn-secondary\" value=\"Country\">Country</button>
-			<button class=\"dropdown-item btn btn-secondary\" value=\"City\">City</button>
-			<button class=\"dropdown-item btn btn-secondary\" value=\"Neighborhood\">Neighborhood</button>
-			<button class=\"dropdown-item active btn btn-secondary\" value=\"Lot\">Lot</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Universe\">Universe</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Planet\">Planet</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Country\">Country</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"City\">City</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Neighborhood\">Neighborhood</button>
+			<button type=\"button\" class=\"dropdown-item active btn btn-secondary\" value=\"Lot\">Lot</button>
 		  </div>
 		</div></div>";
 }
