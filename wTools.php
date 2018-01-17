@@ -13,7 +13,7 @@ function gender(){
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
 			id=\"F\" value=\"gender\" onclick=\"ddfill(this)\">F</button>
 		  </div>
-		</div></div>";
+		</div>";
 }
 function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
@@ -25,7 +25,7 @@ function locationlevel(){
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
 			id=\"F\" value=\"gender\" onclick=\"ddfill(this)\">F</button>
 		  </div>
-		</div></div>";
+		</div>";
 }
 
 function buildNameList($sql, $t){
@@ -40,14 +40,13 @@ function buildNameList($sql, $t){
 		
 		if(array_search("ID",$row)){}
 		else{
-			$payload .= "<div class=\"col-sm\">";
-			$payload .= "<label class=\"\">$row[Field]</label><br>";
-			
-			if(array_search("Gender",$row)) $payload .= gender();
-			else if (array_search("LocationLevel",$row)) $payload .= locationlevel();
+			$payload .= "<div class=\"col-sm\"><label class=\"\">$row[Field]</label><br>";
+			if(array_search("Gender",$row)) $payload .= locationlevel();
+			else if (array_search("LocationLevel",$row)) $payload .= gender();
 			//else if (array_search("",$row))
 			//else if (array_search("",$row))
-			else $payload .= "<input type=\"text\" id=\"$row[Field]\"></input></div>";
+			else $payload .= "<input type=\"text\" id=\"$row[Field]\"></input>";
+			$payload .= "</div>";
 		}
 	}
 	echo $payload."</div></div></form>";
