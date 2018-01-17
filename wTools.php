@@ -18,12 +18,12 @@ function gender(){
 function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
 	return "<div class=\"btn-group dropright\">
-		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"M\">M<span class=\"caret\"></span></button>
-		  <div class=\"dropdown-menu btn btn-secondary align-top\" aria-labelledby=\"LocationLevel\">
+		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"gender\" data-toggle=\"dropdown\" value=\"M\">M<span class=\"caret\"></span></button>
+		  <div class=\"dropdown-menu btn btn-secondary align-top\" aria-labelledby=\"gender\">
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
-			id=\"Uni\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Uni</button>
+			id=\"M\" value=\"gender\" onclick=\"ddfill(this)\">M</button>
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
-			id=\"Plt\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Plt</button>
+			id=\"F\" value=\"gender\" onclick=\"ddfill(this)\">F</button>
 		  </div>
 		</div></div>";
 }
