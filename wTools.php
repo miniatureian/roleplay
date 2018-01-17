@@ -24,14 +24,6 @@ function locationlevel(){
 			id=\"Universe\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Universe</button>
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
 			id=\"Planet\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Planet</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
-			id=\"Country\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Country</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
-			id=\"City\" value=\"LocationLevel\" onclick=\"ddfill(this)\">City</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
-			id=\"Neighborhood\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Neighborhood</button>
-			<button type=\"button\" class=\"dropdown-item active btn btn-secondary\" 
-			id=\"Lot\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Lot</button>
 		  </div>
 		</div></div>";
 }
