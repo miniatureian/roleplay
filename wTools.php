@@ -19,7 +19,7 @@ function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
 	return "<div class=\"dropdown\">
 		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot<span class=\"caret\"></span></button>
-		  <div class=\"dropdown-menu btn btn-secondary\ dropdown-menu-right" aria-labelledby=\"LocationLevel\">
+		  <div class=\"dropdown-menu btn btn-secondary dropdown-menu-right\" aria-labelledby=\"LocationLevel\">
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
 			id=\"Universe\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Universe</button>
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
