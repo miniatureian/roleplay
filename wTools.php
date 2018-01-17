@@ -5,21 +5,21 @@ require_once("query.php");
 
 //some precalculated strings
 function gender(){
-	return "<div class=\"dropdown\">
-				<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"gender\"  data-toggle=\"dropdown\" value\"M\">M<span class=\"caret\"></span></button>
-				<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"gender\">
-					<button type=\"button\" role=\"menuitem\" class=\"dropdown-item\ btn btn-secondary\" 
-					id=\"M\" value\"gender\" onclick=\"ddfill(this)\">M</button>
-					<button type=\"button\" role=\"menuitem\" class=\"dropdown-item btn btn-secondary\" 
-					id=\"F\" value\"gender\" onclick=\"ddfill(this)\">F</button>
-				</div>
-			</div></div>";
+	return "<div class=\"btn-group dropright\">
+		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"gender\" data-toggle=\"dropdown\" value=\"M\">M<span class=\"caret\"></span></button>
+		  <div class=\"dropdown-menu btn btn-secondary\" aria-labelledby=\"gender\">
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"M\" value=\"gender\" onclick=\"ddfill(this)\">M</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"F\" value=\"gender\" onclick=\"ddfill(this)\">F</button>
+		  </div>
+		</div></div>";
 }
 function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
-	return "<div class=\"dropdown\">
+	return "<div class=\"btn-group dropright\">
 		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot<span class=\"caret\"></span></button>
-		  <div class=\"dropdown-menu btn btn-secondary dropdown-menu-right\" aria-labelledby=\"LocationLevel\">
+		  <div class=\"dropdown-menu btn btn-secondary\" aria-labelledby=\"LocationLevel\">
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
 			id=\"Universe\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Universe</button>
 			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
