@@ -58,9 +58,9 @@
 		table = this.value;
 		$("#columnInputs").load("/api/roleplay/wTools.php?table="+table);
 	});
-	function dropdownFill(ddoption){
+	function ddfill(ddoption){
 		$("#"+ddoption.value).html(ddoption.id);
-		$("#"+ddoption.value).value = ddoption.id;
+		$("#"+ddoption.value).val(ddoption.id);
 	}
 </script>
   </body>

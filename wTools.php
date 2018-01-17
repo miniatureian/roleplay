@@ -6,10 +6,10 @@ require_once("query.php");
 //some precalculated strings
 function gender(){
 	return "<div class=\"dropdown\">
-				<button class=\"gender btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\"  data-toggle=\"dropdown\" value\"M\">M</button>
+				<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"Gender\"  data-toggle=\"dropdown\" value\"M\">M<span class=\"caret\"></span></button>
 				<div class=\"dropdown-menu\" aria-labelledby=\"Gender\">
-					<button type=\"button\"  class=\"dropdown-item\ active btn btn-secondary\" id=\"M\" value\"Gender\" onclick=\"dropdownFill(this)\">M</button>
-					<button type=\"button\" class=\"dropdown-item btn btn-secondary\" id=\"F\" value\"Gender\" onclick=\"dropdownFill(this)\">F
+					<button type=\"button\"  class=\"dropdown-item\ btn btn-secondary\" id=\"M\" value\"Gender\" onclick=\"ddfill(this)\">M</button>
+					<button type=\"button\" class=\"dropdown-item btn btn-secondary\" id=\"F\" value\"Gender\" onclick=\"ddfill(this)\">F
 					</button>
 				</div>
 			</div></div>";
@@ -17,14 +17,20 @@ function gender(){
 function locationlevel(){
 	// -> LocationLevel set: Universe Planet Country City Neighborhood Lot
 	return "<div class=\"dropdown\">
-		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot</button>
+		  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"LocationLevel\" data-toggle=\"dropdown\" value=\"Lot\">Lot<span class=\"caret\"></span></button>
 		  <div class=\"dropdown-menu btn btn-secondary\" aria-labelledby=\"LocationLevel\">
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Universe\">Universe</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Planet\">Planet</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Country\">Country</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"City\">City</button>
-			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" value=\"Neighborhood\">Neighborhood</button>
-			<button type=\"button\" class=\"dropdown-item active btn btn-secondary\" value=\"Lot\">Lot</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"Universe\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Universe</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"Planet\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Planet</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"Country\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Country</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"City\" value=\"LocationLevel\" onclick=\"ddfill(this)\">City</button>
+			<button type=\"button\" class=\"dropdown-item btn btn-secondary\" 
+			id=\"Neighborhood\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Neighborhood</button>
+			<button type=\"button\" class=\"dropdown-item active btn btn-secondary\" 
+			id=\"Lot\" value=\"LocationLevel\" onclick=\"ddfill(this)\">Lot</button>
 		  </div>
 		</div></div>";
 }
